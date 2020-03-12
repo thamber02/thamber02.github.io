@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale, user-scalable=no" />
+        <link rel="stylesheet" type="text/css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <title>British Rowing Association</title>
+
+        <style>
+            body {
+                margin: 0;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-row-gap: 0;
+                padding-bottom: 0;
+                font-family: sans-serif;
+            }
+            .grid-item {
+                font-size: 30px;
+                text-align: center;
+
+            }
+
+            .logo {
+                grid-column: 1;
+            }
+            .social {
+                grid-column: 2 / span 3;
+            }
+            .nav {
+                grid-column: 1 / span 3;
+            }
+            .mage {
+                grid-column: 1 / span 3;
+            }
+            .places {
+                grid-column: 1 / span 4;
+            }
+            .news {
+                grid-column: 1 / span 4;
+            }
+            .story {
+                grid-column: 1 / span 2;
+            }
+            .storypic {
+                grid-column: 3 / span 4;
+            }
+            .footer {
+                grid-column: 1 / span 4;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Header Section ------------- */
+            /* --------------------------------------------- */
+            div.grid-item.logo {
+                padding-top: 5px;
+                padding-left: 42px;
+            }
+            div.grid-item.social {
+                padding-top: 5px;
+                padding-right: 45px;
+            }
+
+            .right {
+                float: right;
+                margin-right: 17px;
+            }
+
+            .searchbar {
+                width: 220px;
+                height: 25px;
+                font-size: 16px;
+                margin-right: 6px;
+                margin-top: 5px;
+            }
+            .sign {
+                width: 170px;
+                height: 35px;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            }
+
+            /* Set a style for all buttons */
+            button {
+            background-color: #00008b;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            }
+
+            button:hover {
+            opacity: 0.8;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+            width: auto;
+            padding: 8px 8px;
+            background-color: #f44336;
+            font-size: 10px;
+            }
+
+            /* Center the image and position the close button */
+            .imgcontainer {
+            text-align: left;
+            margin: 24px 0 12px 0;
+            position: relative;
+            }
+
+            .container {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            }
+
+            span.psw {
+            float: right;
+            padding-top: 16px;
+            }
+            button.signup {
+                height: 30px;
+                width: 90px;
+                margin-left: 200px !important;
+                margin-right: 20px !important;
+            }
+
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 40%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button (x) */
+            .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: red;
+            cursor: pointer;
+            }
+
+            img.right.twitter {
+                margin-top: 5px;
+            }
+            img.right.facebook {
+                margin-top: 5px;
+            }
+            img.right.instagram {
+                margin-top: 5px;
+                margin-right: 0;
+            }
+            img.right.youtube {
+                margin-top: 5px;
+            }
+            #logo {
+                width: 220px;
+            }
+
+            /* ------------------------------------------ */
+            /* ---------------- Nav Section ------------- */
+            /* --------------------- -------------------- */
+            nav {
+                background: #00008b;
+                font-size: 20px;
+            }
+            ul {
+                width: 900px;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-around;
+                list-style: none;
+                text-align: left;
+            }
+            ul li {
+                list-style: none;
+                display: inline-block;
+                padding: 10px;
+                padding-right: 1px;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 200px;
+                height: 21px;
+                color: white;
+                text-decoration: none;
+            }
+
+            ul li:hover {
+                background: red;
+            }
+            ul li.rowing {
+                width: 250px;
+            }
+
+            li.empty {
+                width: 70px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            li.empty:hover {
+                background: none;
+            }
+
+            .toggle {
+                width: 100%;
+                padding: 10px 20px;
+                background: #001f44;
+                text-align: left;
+                box-sizing: border-box;
+                color: #ffffff;
+                font-size: 30px;
+                display: none;
+            }
+
+            /* ------------------------------------------------- */
+            /* ---------------- Main Image Section ------------- */
+            /* ------------------------------------------------- */
+            .grid-item.mage {
+                margin-top: 5px;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Places Section ------------- */
+            /* --------------------------------------------- */
+            .grid-item.places {
+                margin-top: 10px;
+            }
+            .slider {
+              width: 1350px;
+              text-align: center;
+              overflow: hidden;
+              margin-left: 45px;
+              margin-top: 10px;
+              margin-bottom: 10px;
+            }
+            .slides {
+              display: flex;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            }
+            .slides::-webkit-scrollbar {
+              width: 10px;
+              height: 10px;
+            }
+            .slides::-webkit-scrollbar-thumb {
+              background: #666;
+              border-radius: 10px;
+            }
+            .slides::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .slides > div {
+              scroll-snap-align: start;
+              flex-shrink: 0;
+              width: 200px;
+              height: 210px;
+              margin-right: 50px;
+              border-radius: 10px;
+              background: #eee;
+              transform-origin: center center;
+              transform: scale(1);
+              transition: transform 0.5s;
+              /*position: relative;*/
+              /*display: flex;*/
+              justify-content: center;
+              align-items: center;
+              font-size: 100px;
+            }
+            /*.slider > a {
+              display: inline-flex;
+              width: 2rem;
+              height: 2rem;
+              background: #00008b;
+              text-decoration: none;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              margin: 0 0 0.5rem 0;
+              position: relative;
+              color: #ffffff;
+            }
+            .slider > a:active {
+              top: 1px;
+              color: #1c87c9;
+            }
+            .slider > a:focus {
+              background: #eee;
+            }
+            */
+            /* Don't need button navigation */
+            /*@supports (scroll-snap-type) {
+              .slider > a {
+              display: none;
+              }
+            }*/
+
+            /* ------------------------------------------- */
+            /* ---------------- News Section ------------- */
+            /* ------------------------------------------- */
+
+            .grid-item.news {
+                width: 100%;
+                margin-bottom: 40px;
+                margin-top: 20px;
+            }
+            
+            #news-y, #news-re, #news-ro {
+                float: left;
+                margin-left: 20px;
+                width: 410px;
+                height: 280px;
+            }
+            #news-y, #news-re, #news-ro p {
+                font-size: 16px;
+                font-weight: 400;
+                text-align: left;
+            }
+            img.youth, img.regatta, img.rowathon {
+                margin-bottom: 10px;
+            }
+
+            /* -------------------------------------------- */
+            /* ---------------- Story Section ------------- */
+            /* -------------------------------------------- */
+
+            .grid-item.story {
+                width: 907px;
+            }
+            h4 {
+                font-size: 24px;
+                margin-top: 0;
+                padding-left: 55px;
+                width: 1300px;
+            }
+            .story p {
+                font-size: 18px;
+                padding-left: 55px;
+                margin-top: 0;
+                margin-bottom: 5px;
+                line-height: 25px;
+            }
+            img.person {
+                height: 320px;
+                margin-top: 55px;
+                width: 435px;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Footer Section ------------- */
+            /* --------------------------------------------- */
+
+            .grid-item.footer {
+                background-color: #00008b;
+                margin-bottom: 0;
+                font-size: 12px;
+                color: white;
+            }
+
+            #leftside {
+                float: left;
+                margin-left: 55px;
+                text-align: left;
+            }
+        
+            #rightside {
+                float: right;
+                margin-right: 48px;
+                text-align: right;
+            }
+            #rightside a, #leftside a {
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            .footer p {
+                font-size: 14px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+            #rightside .social {
+                display: none;
+            }
+
+
+
+
+            @media only screen and (min-width: 701px) {
+                #leftside p.c {
+                    display: none;
+                }
+            }
+
+            @media only screen and (max-width: 700px) {
+                .instagram, .youtube, .facebook, .twitter, .sign, #rarrow, #larrow, li.empty, p.r {
+                    display: none;
+                }
+
+
+                div.grid-item.logo {
+                    padding-right: 60px;
+                    padding-top: 10px;
+                }
+                .grid-item.social {
+                    padding-right: 0 !important;
+                }
+
+                /*.right {
+                    float: none;
+                    margin-right: 0;
+                    width: 100%;
+                }*/
+                input.searchbar {
+                    margin-top: 6px;
+                    margin-right: 0;
+                    height: 33px;
+                    width: 96%;
+                    padding: 0;
+                }
+
+                nav {
+                    width: 100%;
+                }
+                ul {
+                    display: none;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                ul li {
+                    display: block;
+                    text-align: left;
+                    width: 100%;
+                    padding-right: 0;
+                    padding-bottom: 10px;
+                    padding-left: 5px;
+                    height: 25px;
+                }
+                .active {
+                    display: block;
+                    width: 100%;
+                }
+                .toggle {
+                    display: block;
+                }
+                ul li.rowing:hover {
+                    width: 100%;
+                }
+                /*li.home{
+                    width: 504px;
+                }
+                li.about {
+                    width: 504px;
+                }
+                li.rowing {
+                    width: 504px !important;
+                }
+                li.events {
+                    width: 504px;
+                }
+                li.news {
+                    width: 504px;
+                }
+                li.shop {
+                    width: 504px;
+                }*/
+
+
+
+                img.team {
+                    width: 100%;
+                }
+
+                .grid-item.places {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+                
+                .slider {
+                    width: 98%;
+                    margin-left: 6px;
+                }
+
+
+                #news-y {
+                    width: 100%;
+                    margin-left: 0 !important;
+                    height: 460px;
+                }
+                #news-re {
+                    width: 100%;
+                    height: 440px;
+                    margin-left: 0 !important;
+                    padding-left: 0 !important;
+                }
+                #news-ro {
+                    width: 100%;
+                    height: 420px;
+                    margin-left: 0 !important;
+                    padding-left: 0 !important;
+
+                }
+                #news-y p, #news-re p, #news-ro p {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+
+                img.youth {
+                    width: 100%;
+                }
+                img.regatta {
+                    width: 100%;
+                }
+                img.rowathon {
+                    width: 100%;
+                }
+                p.youth {
+                    margin-bottom: 20px;
+                }
+                p.rowathon {
+                    margin-bottom: 20px;
+
+                }
+                p.regatta {
+                    margin-bottom: 20px;
+                }
+
+
+                .grid-item.story {
+                    grid-column: 1 / span 3;
+                    width: 100%;
+                }
+                img.person {
+                    margin-right: 0;
+                    margin-bottom: 0;
+                    margin-top: 20px !important;
+                    width: 700px;
+                }
+                h4 {
+                    width: 100%;
+                    padding-left: 0;
+                }
+                .grid-item.story p {
+                    width: 100%;
+                    padding-left: 0;
+                }
+                .grid-item.storypic {
+                    grid-column: 1;
+                    width: 100%;
+                }
+
+                .grid-item.footer {
+                    margin-top: 0 !important;
+                }
+                .footer p {
+                    font-size: 12px;
+                }
+                #leftside {
+                    margin-left: 5px;
+                }
+                #rightside {
+                    margin-right: 5px;
+                }
+                #rightside .social {
+                    display: block;
+                }
+                .finstagram, .fyoutube, .ffacebook, .ftwitter {
+                    display: block;
+                    margin-top: 10px;
+                }
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            
+            <div class="grid-item logo">
+                <div id="logo">
+                    <a href="Website2.html"><img src="https://www.britishrowing.org/wp-content/themes/britishrowing/assets/img/brand/br-logo-horizontal.png" height="38" alt="logo"></a>
+                </div>
+            </div>
+
+
+            <div class="grid-item social">
+                <a href="https://www.instagram.com/britishrowing/"><img class="right instagram" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" alt="instagram" width="37" height="36"></a>
+                <a href="https://www.youtube.com/user/britishrowing"><img class="right youtube" src="http://pluspng.com/img-png/youtube-png-youtube-play-button-png-free-download-396.png" alt="youtube" width="40" height="35"></a>
+                <a href="https://www.facebook.com/BritishRowing"><img class="right facebook" src="https://s18955.pcdn.co/wp-content/uploads/2017/11/Facebook-share-icon.png" alt="facebook" width="37" height="35"></a>
+                <a href="https://twitter.com/britishrowing"><img class="right twitter" src="http://stagewp.sharethis.com/wp-content/uploads/2019/03/twitterimg.png" alt="twitter" width="37" height="35"></a>
+                
+                <form class="right"><input class="searchbar" value="Search..."></form>
+
+                <button class="right sign" onclick="document.getElementById('id01').style.display='block'">SIGN UP </button>
+                <div id="id01" class="modal">
+  
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                
+                      <div class="container">
+                        <label for="uname"><b>Email Address</b></label>
+                        <input type="text" placeholder="Enter Email Address" name="email" required>
+                        
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                  
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                          
+                        <button class="signup" type="submit">Sign Up</button>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                      </div>
+                  
+                      <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                      </div>
+
+                    </form>
+
+                  </div>
+
+            </div>
+            
+            <div class="grid-item nav">        
+                <nav>
+                    <div class="toggle">
+                        <div class="menu">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="empty"></li>
+                        <li class="home" onclick="location.href='Website2.html';" style="cursor: pointer;">Home</li>
+                        <li class="about" onclick="location.href='About.html';" style="cursor: pointer;">About Us</li>
+                        <li class="rowing" onclick="location.href='Rowing.html';" style="cursor: pointer;">Go Rowing</li>
+                        <li class="events" onclick="location.href='Events.html';" style="cursor: pointer;">Events</li>
+                        <li class="news" onclick="location.href='News.html';" style="cursor: pointer;">News</li>
+                        <li class="shop" onclick="location.href='Shop.html';" style="cursor: pointer;">Shop</li>
+                        <li class="empty"></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="grid-item mage">
+                <div id="content">
+                    <img class="team" src="https://www.britishrowing.org/wp-content/uploads/2019/07/WCII-double-website.png" width="1350">
+                </div>
+            </div>
+
+            <div class="grid-item places">
+
+                <div class="slider">
+                    <!--
+                    <a href="#slide-1">1</a>
+                    <a href="#slide-2">2</a>
+                    <a href="#slide-3">3</a>
+                    <a href="#slide-4">4</a>
+                    <a href="#slide-5">5</a>
+                    <a href="#slide-6">6</a>
+                    -->
+              
+                        <!--------------------------------------->
+                        <!------------ CONTENT SECTION ---------->
+                        <!---------------------------------------> 
+              
+                    <div class="slides">
+                      <div id="slide-1">
+                        <img src="https://media.timeout.com/images/102759833/630/472/image.jpg" width="200" height="150" alt="Battersea Park">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Lake Battersea</p>
+                      </div>
+                      <div id="slide-2">
+                        <img src="https://leytonstonelondone11.files.wordpress.com/2011/10/hollow-pond-boats.jpg" width="200" height="150" alt="Hollow Pond">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Hollow Pond</p>
+                      </div>
+                      <div id="slide-3">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/04/0d/dc/b6/boating-pond.jpg" width="200" height="150" alt="Dulwich Park">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Dulwich Park</p>
+                      </div>
+                      <div id="slide-4">
+                        <img src="http://www.utrc.org.uk/wp-content/uploads/2014/01/MensEight2012-for-ROWING-SQUADS-ABOUT.jpg" width="200" height="150" alt="Upper Thames">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Upper Thames</p>
+                      </div>
+                      <div id="slide-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Regent%27s_Park_boating_lake_-_geograph.org.uk_-_21750.jpg" width="200" height="150" alt="Regents Park">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Regents Park</p>
+                      </div>
+                      <div id="slide-6">
+                        <img src="https://i.pinimg.com/originals/57/63/cc/5763cc9831846834b8af799f748841c3.jpg" width="200" height="150" alt="Hyde Park">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Hyde Park</p>
+                      </div>
+                      <div id="slide-7">
+                        <img src="https://assets.londonist.com/uploads/2015/04/i640/boating-lake1-627x452.jpg" width="200" height="150" alt="Ally Pally">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Alexandra Palace</p>
+                      </div>
+                      <div id="slide-8">
+                        <img src="https://assets.londonist.com/uploads/2015/04/i640/victoria.jpg" width="200" height="150" alt="Victoria">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Victoria Park</p>
+                      </div>
+                      <div id="slide-9">
+                        <img src="https://www.parkgrandlondon.co.uk/blog/wp-content/uploads/2015/08/82707151.jpg" width="200" height="150" alt="Kew Gardens">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Kew Gardens</p>
+                      </div>
+                      <div id="slide-10">
+                        <img src="https://www.royalparks.org.uk/_media/images/greenwich-park/news/Greenwich-boats.jpg/w_768.jpg" width="200" height="150" alt="Ally Pally">
+                        <p style="margin-bottom: 0; margin-top: 0; font-size: 22px; font-weight: 600;">Greenwich Park</p>
+                      </div>
+              
+                    </div>
+              
+                  </div>
+
+            </div>
+
+            <div class="grid-item news">
+                
+                <div id="news-y" style="margin-left: 45px;">
+                    <img class="youth" src="https://www.britishrowing.org/wp-content/uploads/2019/12/9-FRBC.png" align="left" alt="Youth Rowing Project" width="410">
+                    <p>Community-Focused Clubs Enables More Juniors to Reap the Benefits of Rowing</p>
+                </div>
+
+                <div id="news-re" style="margin-left: 60px;">
+                    <img class="regatta" src="https://www.britishrowing.org/wp-content/uploads/2019/07/England-Junior-Women-HIR2019.jpg" align="left" alt="International Womens Regatta" width="410">
+                    <p class="regatta">Transformed Regatta Allows Cutting Edge International Rowing Competition</p>
+                </div>
+
+                <div id="news-ro" style="margin-left: 60px;">
+                    <img class="rowathon" src="https://www.britishrowing.org/wp-content/uploads/2019/11/Ian-Jamieson-1600x900.jpg" align="left" alt="Charity Rowathon" width="410">
+                    <p class="rowathon">Community-Focused Clubs Enables More Juniors to Reap the Benefits of Rowing</p>
+                </div>
+
+            </div>
+            
+            <div class="grid-item story">
+
+                <h4 align="left">Success for the older generation groups at the Mizuno British Indoor Rowing Championships</h4>
+                <p align="left">
+                    Another keep fit enthusiast, who set herself the challenge of racing over 2000m, was Shelagh Allen. The 81-year-old, from West Byfleet in Surrey, was the oldest woman taking part in the Championships and the only competitor in the women’s 80-84 age group.
+                    The former nurse, who finished in 10.42, took up indoor rowing at 58 and has since competed in many events, including the World Indoor Rowing Championships, and has held several British records.
+                    She said: “I used to cycle but then tried indoor rowing and loved it.
+                    I used to go five days a week but now go about three.
+                    As long as I keep going I will keep doing it.
+                    So many people say they are proud of me, which is great.”<br><br>
+                    Her next major event will be the World Rowing Indoor Championships in Paris in February.<br>
+                    In the meantime, the mother-of-two and grandmother-of-one will continue to go to the gym and power walk for an hour every morning with her husband Tom, 85.
+                    The sprightly seniors impressed GB’s top para-rowers, who were also competing at the indoor championships, as part of the selection process for the Paralympics in Tokyo next year.
+                </p>
+
+            </div>
+
+            <div class="grid-item storypic" style="width: 405px;">
+
+                <img class="person" src="https://www.britishrowing.org/wp-content/uploads/2019/12/Shelagh-Allen.jpg" alt="Mary" width="405">
+            
+            </div>
+
+            <div class="grid-item footer" style="margin-top: 15px;">
+
+                <div id="leftside">
+                    <a href="#"><p>Terms and Conditions</p></a>
+                    <a href="#"><p>Privacy Policy</p></a>
+                    <a href="#"><p>Cookies</p></a>
+                    <a href="#"><p class="c">© Copyright 2020 British Rowing</p></a>
+
+                </div>
+                <div id="rightside">
+                    <div class="social" style="height: 42px;">
+                    <a href="https://www.instagram.com/britishrowing/"><img class="right finstagram" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" alt="instagram" width="37" height="36" style="margin-right: 0;"></a>
+                    <a href="https://www.youtube.com/user/britishrowing"><img class="right fyoutube" src="http://pluspng.com/img-png/youtube-png-youtube-play-button-png-free-download-396.png" alt="youtube" width="40" height="35"></a>
+                    <a href="https://www.facebook.com/BritishRowing"><img class="right ffacebook" src="https://s18955.pcdn.co/wp-content/uploads/2017/11/Facebook-share-icon.png" alt="facebook" width="37" height="35"></a>
+                    <a href="https://twitter.com/britishrowing"><img class="right ftwitter" src="http://stagewp.sharethis.com/wp-content/uploads/2019/03/twitterimg.png" alt="twitter" width="37" height="35"></a>
+                    </div>
+                    <a href="Contact.html"><p>Contact Us</p></a>
+                    <a href="#"><p>Accessibility Statement</p></a>
+                    <a href="#"><p class="r">© Copyright 2020 British Rowing</p></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.menu').click(function() {
+                    $('ul').toggleClass('active');
+                })
+            })
+        </script>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            </script>
+    </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-type" content="text.html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css">
+
+
+        <title>Contact Us</title>
+
+        <style>
+            body {
+                margin: 0;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-row-gap: 0;
+                padding-bottom: 0;
+                font-family: sans-serif;
+            }
+
+            .grid-item {
+                font-size: 30px;
+                text-align: center;
+            }
+            .logo {
+                grid-column: 1;
+            }
+            .social {
+                grid-column: 2 / span 3;
+            }
+            .nav {
+                grid-column: 1 / span 3;
+            }
+            .lecontent {
+                grid-column: 1;
+            }
+            .ricontent {
+                grid-column: 2 / span 3;
+            }
+            .footer {
+                grid-column: 1 / span 3;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Header Section ------------- */
+            /* --------------------------------------------- */
+            div.grid-item.logo {
+                padding-top: 5px;
+                padding-left: 42px;
+            }
+            div.grid-item.social {
+                padding-top: 5px;
+                padding-right: 45px;
+            }
+
+            .right {
+                float: right;
+                margin-right: 17px;
+            }
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            }
+
+            /* Set a style for all buttons */
+            button {
+            background-color: #00008b;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            }
+
+            button:hover {
+            opacity: 0.8;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+            width: auto;
+            padding: 8px 8px;
+            background-color: #f44336;
+            font-size: 10px;
+            }
+
+            /* Center the image and position the close button */
+            .imgcontainer {
+            text-align: left;
+            margin: 24px 0 12px 0;
+            position: relative;
+            }
+
+            .container {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            }
+
+            span.psw {
+            float: right;
+            padding-top: 16px;
+            }
+            button.signup {
+                height: 30px;
+                width: 90px;
+                margin-left: 200px !important;
+                margin-right: 20px !important;
+            }
+
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 40%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button (x) */
+            .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: red;
+            cursor: pointer;
+            }
+
+            .searchbar {
+                width: 220px;
+                height: 25px;
+                font-size: 16px;
+                margin-right: 6px;
+                margin-top: 5px;
+            }
+            .sign {
+                width: 170px;
+                height: 35px;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+
+            img.right.twitter {
+                margin-top: 5px;
+            }
+            img.right.facebook {
+                margin-top: 5px;
+            }
+            img.right.instagram {
+                margin-top: 5px;
+                margin-right: 0;
+            }
+            img.right.youtube {
+                margin-top: 5px;
+            }
+            #logo {
+                width: 220px;
+            }
+
+            #buy {
+                width: 230px;
+                height: 50px;
+                display: flex;
+                text-align: right;
+            }
+            img.buy {
+                background: #00008b;
+                margin-top: 5px;
+                height: 35px;
+            }
+            span.zero {
+                font-size: 18px;
+            }
+            #buy p {
+                margin: 0;
+                width: 125px;
+                padding-top: 8px;
+                margin-left: 5px;
+            }
+
+
+            /* ------------------------------------------ */
+            /* ---------------- Nav Section ------------- */
+            /* --------------------- -------------------- */
+            nav {
+                background: #00008b;
+                font-size: 20px;
+            }
+            ul {
+                width: 900px;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-around;
+                list-style: none;
+                text-align: left;
+            }
+            ul li {
+                list-style: none;
+                display: inline-block;
+                padding: 10px;
+                padding-right: 1px;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 200px;
+                height: 21px;
+                color: white;
+                text-decoration: none;
+            }
+
+            ul li:hover {
+                background: red;
+            }
+            ul li.rowing {
+                width: 250px;
+            }
+
+            li.empty {
+                width: 70px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            li.empty:hover {
+                background: none;
+            }
+
+            .toggle {
+                width: 100%;
+                padding: 10px 20px;
+                background: #001f44;
+                text-align: left;
+                box-sizing: border-box;
+                color: #ffffff;
+                font-size: 30px;
+                display: none;
+            }
+
+
+            /* ---------------------------------------------- */
+            /* ---------------- Content Section ------------- */
+            /* ---------------------------------------------- */
+            .contact-title {
+                margin-top: 25px;
+                color: #000000;
+                text-transform: uppercase;
+            }
+            .contact-title h1 {
+                font-size: 22px;
+                line-height: 10px;
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            .form-control {
+                width: 100%;
+                height: 100px;
+                background: transparent;
+                border: none;
+                outline: none;
+                border: 1px solid gray;
+                color: #000000;
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
+            form .submit {
+                border-color: transparent;
+                color: #ffffff;
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                height: 50px;
+                margin-top: 20px;
+            }
+            form .submit:hover {
+                background-color: #f44336;
+                cursor: pointer;
+            }
+            b.name {
+                font-size: 24px;
+            }
+            b.email {
+                font-size: 24px;
+            }
+            textarea.form-control {
+                font-family: sans-serif;
+                width: 630px;
+            }
+            div.address, div.hrs, div.number {
+                text-align: left;
+            }
+            h4 {
+                font-size: 24px;
+                margin-bottom: 5px;
+                margin-left: 47px;
+            }
+            .address p, .hrs p, .number p {
+                margin-top: 0;
+                font-size: 18px;
+                margin-left: 47px;
+            }
+            button.send {
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .lecontent .logo {
+                margin-left: 47px;
+                margin-top: 20px;
+            }
+            .grid-item.ricontent {
+                margin-left: 258px;
+                margin-right: 50px;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Footer Section ------------- */
+            /* --------------------------------------------- */
+
+            .grid-item.footer {
+                background-color: #00008b;
+                margin-bottom: 0;
+                font-size: 12px;
+                color: white;
+            }
+
+            #leftside {
+                float: left;
+                margin-left: 42px;
+                text-align: left;
+            }
+        
+            #rightside {
+                float: right;
+                margin-right: 42px;
+                text-align: right;
+            }
+
+            .footer p {
+                font-size: 14px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div class="grid-container">
+            
+            <div class="grid-item logo">
+                <div id="logo">
+                    <a href="Website2.html"><img src="https://www.britishrowing.org/wp-content/themes/britishrowing/assets/img/brand/br-logo-horizontal.png" height="38" alt="logo"></a>
+                </div>
+            </div>
+
+
+            <div class="grid-item social">
+                <a href="https://www.instagram.com/britishrowing/"><img class="right instagram" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" alt="instagram" width="37" height="36"></a>
+                <a href="https://www.youtube.com/user/britishrowing"><img class="right youtube" src="http://pluspng.com/img-png/youtube-png-youtube-play-button-png-free-download-396.png" alt="youtube" width="40" height="35"></a>
+                <a href="https://www.facebook.com/BritishRowing"><img class="right facebook" src="https://s18955.pcdn.co/wp-content/uploads/2017/11/Facebook-share-icon.png" alt="facebook" width="37" height="35"></a>
+                <a href="https://twitter.com/britishrowing"><img class="right twitter" src="http://stagewp.sharethis.com/wp-content/uploads/2019/03/twitterimg.png" alt="twitter" width="37" height="35"></a>
+                
+                <form class="right"><input class="searchbar" value="Search..."></form>
+
+                <button class="right sign" onclick="document.getElementById('id01').style.display='block'">SIGN UP </button>
+                <div id="id01" class="modal">
+  
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                
+                      <div class="container">
+                        <label for="uname"><b>Email Address</b></label>
+                        <input type="text" placeholder="Enter Email Address" name="email" required>
+                        
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                  
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                          
+                        <button class="signup" type="submit">Sign Up</button>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                      </div>
+                  
+                      <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                      </div>
+
+                    </form>
+
+                  </div>
+
+            </div>
+            
+            <div class="grid-item nav">        
+                <nav>
+                    <div class="toggle">
+                        <div class="menu">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="empty"></li>
+                        <li onclick="location.href='Website2.html';" style="cursor: pointer;">Home</li>
+                        <li class="about" onclick="location.href='About.html';" style="cursor: pointer;">About Us</li>
+                        <li class="rowing" onclick="location.href='Rowing.html';" style="cursor: pointer;">Go Rowing</li>
+                        <li onclick="location.href='Events.html';" style="cursor: pointer;">Events</li>
+                        <li onclick="location.href='News.html';" style="cursor: pointer;">News</li>
+                        <li onclick="location.href='Shop.html';" style="cursor: pointer;">Shop</li>
+                        <li class="empty"></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="grid-item lecontent">
+                <div class="logo" align="left">
+                    <a href="Website2.html"><img src="https://www.britishrowing.org/wp-content/themes/britishrowing/assets/img/brand/br-logo-horizontal.png" width="450" height="90" alt="logo"></a>
+                </div>
+                <div class="address">
+                    <h4>Address</h4>
+                    <p>British Rowing,<br>Hammersmith, London,<br> 6 Lower Mall, W6 9DJ</p>
+                </div>
+                <div class="hrs">
+                    <h4 class="general">Office Hours</h4>
+                    <p class="hours">Monday to Friday: 09:00am-17:00pm</p>
+                </div>
+                <div class="number">
+                    <h4>Telephone Number</h4>
+                    <p>020 8237 6700</p>
+                </div>
+            </div>
+            <div class="grid-item ricontent">
+                <h3>Drop Us A Message</h3>
+
+                <div class="contact-form" align="left">
+                    <form id="contact-form" method="POST" action="contact.php">
+                        <label for="uname"><b class="name">Name</b></label>
+                        <input type="text" placeholder="Enter Name" name="name" required>
+                        <br>
+                        <label for="uname"><b class="email" >Email Address</b></label>
+                        <input type="text" placeholder="Enter Email Address" name="email" required>
+                        <br>
+                        <textarea name="message" class="form-control" placeholder="Message" row="4" required></textarea>
+                        <br>
+                        <button class="send" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="grid-item footer" style="margin-top: 15px;">
+
+                <div id="leftside">
+                    <p>Terms and Conditions</p>
+                    <p>Privacy Policy</p>
+                    <p>Cookies</p>
+                </div>
+                <div id="rightside">
+                    <p>Contact Us</p>
+                    <p>Accessibility Statement</p>
+                    <p>© Copyright 2020 British Rowing</p>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.menu').click(function() {
+                $('ul').toggleClass('active');
+            })
+        })
+    </script>
+
+</html>

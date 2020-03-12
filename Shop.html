@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-type" content="text.html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css">
+
+
+        <title>British Rowing Store</title>
+
+        <style>
+            body {
+                margin: 0;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-row-gap: 0;
+                padding-bottom: 0;
+                font-family: sans-serif;
+            }
+
+            .grid-item {
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .logo {
+                grid-column: 1;
+            }
+            .social {
+                grid-column: 2 / span 3;
+            }
+            .nav {
+                grid-column: 1 / span 3;
+            }
+            .bnav {
+                grid-column: 1 / span 3;
+            }
+            .content {
+                grid-column: 1 / span 3;
+            }
+            .footer {
+                grid-column: 1 / span 3;
+            }
+
+
+            /* --------------------------------------------- */
+            /* ---------------- Header Section ------------- */
+            /* --------------------------------------------- */
+            div.grid-item.logo {
+                padding-top: 5px;
+                padding-left: 42px;
+            }
+            div.grid-item.social {
+                padding-top: 5px;
+                padding-right: 45px;
+            }
+
+            .right {
+                float: right;
+                margin-right: 17px;
+            }
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            }
+
+            /* Set a style for all buttons */
+            button {
+            background-color: #00008b;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            }
+
+            button:hover {
+            opacity: 0.8;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+            width: auto;
+            padding: 8px 8px;
+            background-color: #f44336;
+            font-size: 10px;
+            }
+
+            /* Center the image and position the close button */
+            .imgcontainer {
+            text-align: left;
+            margin: 24px 0 12px 0;
+            position: relative;
+            }
+
+            .container {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            }
+
+            span.psw {
+            float: right;
+            padding-top: 16px;
+            }
+            button.signup {
+                height: 30px;
+                width: 90px;
+                margin-left: 200px !important;
+                margin-right: 20px !important;
+            }
+
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 40%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button (x) */
+            .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: red;
+            cursor: pointer;
+            }
+
+            .searchbar {
+                width: 220px;
+                height: 25px;
+                font-size: 16px;
+                margin-right: 6px;
+                margin-top: 5px;
+            }
+            .sign {
+                width: 170px;
+                height: 35px;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+
+            img.right.twitter {
+                margin-top: 5px;
+            }
+            img.right.facebook {
+                margin-top: 5px;
+            }
+            img.right.instagram {
+                margin-top: 5px;
+                margin-right: 0;
+            }
+            img.right.youtube {
+                margin-top: 5px;
+            }
+            #logo {
+                width: 220px;
+            }
+
+            #buy {
+                width: 230px;
+                height: 50px;
+                display: flex;
+                text-align: right;
+            }
+            img.buy {
+                background: #00008b;
+                margin-top: 5px;
+                height: 35px;
+            }
+            span.zero {
+                font-size: 18px;
+            }
+            #buy p {
+                margin: 0;
+                width: 125px;
+                padding-top: 8px;
+                margin-left: 5px;
+            }
+
+
+            /* ------------------------------------------ */
+            /* ---------------- Nav Section ------------- */
+            /* --------------------- -------------------- */
+            nav {
+                background: #00008b;
+                font-size: 20px;
+            }
+            ul {
+                width: 900px;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-around;
+                list-style: none;
+                text-align: left;
+            }
+            ul li {
+                list-style: none;
+                display: inline-block;
+                padding: 10px;
+                padding-right: 1px;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 200px;
+                height: 21px;
+                color: white;
+                text-decoration: none;
+            }
+
+            ul li:hover {
+                background: red;
+            }
+            ul li.rowing {
+                width: 250px;
+            }
+
+            li.empty {
+                width: 70px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            li.empty:hover {
+                background: none;
+            }
+
+            .toggle {
+                width: 100%;
+                padding: 10px 20px;
+                background: #001f44;
+                text-align: left;
+                box-sizing: border-box;
+                color: #ffffff;
+                font-size: 30px;
+                display: none;
+            }
+
+            /* ------------------------------------------------- */
+            /* ---------------- Bottom Nav Section ------------- */
+            /* ------------------------------------------------- */
+            /*div.grid-item.bnav {
+                background: linear-gradient(to right, rgba(0, 63, 120, 0.85), rgba(52, 152, 219, 0.7)) !important;
+            }*/
+            .bnav nav {
+                font-size: 12px;
+                border-top: 1px solid #6183A6;
+                background: #003F87;
+                }
+            .bnav ul {
+                text-align: left;
+                width: 400px;
+            }
+            .bnav ul li {
+                height: 13px;
+                padding: 5px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+                width: 100%;
+                border-right: 2px solid #6183A6;
+            }
+            .bnav ul li.lempty {
+                width: 240px;
+                border-right: none !important;
+            }
+            .bnav ul li.lempty:hover {
+                background: none;
+            }
+
+
+            /* ---------------------------------------------- */
+            /* ---------------- Content Section ------------- */
+            /* ---------------------------------------------- */
+            #box1 {
+                text-align: center;
+                position: relative;
+                color: white;
+                margin-top: 10px;
+            }
+            #box1 h1 {
+                position: absolute;
+                top: 80px;
+                left: 50px;
+                right: 30%;
+                width: 700px;
+            }
+            #box2 {
+                margin-left: 45px;
+                width: 1350px;
+                margin-top: 10px;
+            }
+            img.img2 {
+                float: left;
+                margin-right: 20px;
+            }
+            img.img3 {
+                float: left;
+            }
+            #box2 h1 {
+                font-size: 20px;
+                margin-top: 1px;
+                margin-bottom: 0;
+                text-align: left;
+                padding-left: 320px;
+            }
+            #box2 {
+                font-size: 16px;
+                margin-top: 30px;
+                margin-bottom: 10px;
+                text-align: left;
+                line-height: 25px;
+            }
+            p.img2 {
+                padding-left: 320px;
+            }
+            p.fleece {
+                width: 500px;
+                margin-top: 0;
+                text-align: center;
+            }
+
+            .slider {
+              width: 1030px;
+              text-align: center;
+              overflow: hidden;
+              margin-left: 45px;
+              margin-top: 10px;
+              margin-bottom: 10px;
+            }
+            .slides {
+              display: flex;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            }
+            .slides::-webkit-scrollbar {
+              width: 10px;
+              height: 10px;
+            }
+            .slides::-webkit-scrollbar-thumb {
+              background: #666;
+              border-radius: 10px;
+            }
+            .slides::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .slides > div {
+              scroll-snap-align: start;
+              flex-shrink: 0;
+              width: 215px;
+              height: 245px;
+              margin-right: 50px;
+              border-radius: 10px;
+              background: #eee;
+              transform-origin: center center;
+              transform: scale(1);
+              transition: transform 0.5s;
+              /*position: relative;*/
+              /*display: flex;*/
+              justify-content: center;
+              align-items: center;
+              font-size: 100px;
+            }
+
+
+            #box3 {
+                font-size: 16px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: left;
+                line-height: 25px;
+                margin-left: 45px;
+                width: 1350px;
+                margin-top: 10px;
+            }
+            #box3 div.two {
+                margin-top: 40px;
+            }
+            #box3 h1 {
+                font-size: 20px;
+                margin-top: 1px;
+                margin-bottom: 0;
+                text-align: left;
+                padding-left: 320px;
+            }
+            img.rower {
+                height: 246px;
+                width: 500px;
+                margin-left: 250px;
+            }
+
+
+            #box4 {
+                margin-left: 45px;
+                width: 1350px;
+                margin-top: 10px;
+                font-size: 16px;
+                margin-top: 30px;
+                margin-bottom: 10px;
+                text-align: left;
+                line-height: 25px;
+            }
+            #box4 h1 {
+                font-size: 20px;
+                margin-top: 1px;
+                margin-bottom: 0;
+                text-align: left;
+                padding-left: 320px;
+            }
+
+            .slider2 {
+              width: 1030px;
+              text-align: center;
+              overflow: hidden;
+              margin-left: 45px;
+              margin-top: 10px;
+              margin-bottom: 10px;
+            }
+            .slides2 {
+              display: flex;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            }
+            .slides2::-webkit-scrollbar {
+              width: 10px;
+              height: 10px;
+            }
+            .slides2::-webkit-scrollbar-thumb {
+              background: #666;
+              border-radius: 10px;
+            }
+            .slides2::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            .slides2 > div {
+              scroll-snap-align: start;
+              flex-shrink: 0;
+              width: 250px;
+              height: 295px;
+              margin-right: 50px;
+              border-radius: 10px;
+              background: #eee;
+              transform-origin: center center;
+              transform: scale(1);
+              transition: transform 0.5s;
+              /*position: relative;*/
+              /*display: flex;*/
+              justify-content: center;
+              align-items: center;
+              font-size: 100px;
+            }
+
+
+            /* --------------------------------------------- */
+            /* ---------------- Footer Section ------------- */
+            /* --------------------------------------------- */
+
+            .grid-item.footer {
+                background-color: #00008b;
+                margin-bottom: 0;
+                font-size: 12px;
+                color: white;
+            }
+
+            #leftside {
+                float: left;
+                margin-left: 55px;
+                text-align: left;
+            }
+        
+            #rightside {
+                float: right;
+                margin-right: 48px;
+                text-align: right;
+            }
+
+            .footer p {
+                font-size: 20px;
+            }
+            .grid-item.footer {
+                background-color: #00008b;
+                margin-bottom: 0;
+                font-size: 12px;
+                color: white;
+            }
+
+            #leftside {
+                float: left;
+                margin-left: 42px;
+                text-align: left;
+            }
+        
+            #rightside {
+                float: right;
+                margin-right: 42px;
+                text-align: right;
+            }
+            #rightside a, #leftside a {
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            .footer p {
+                font-size: 14px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="grid-container">
+            
+            <div class="grid-item logo">
+                <div id="logo">
+                    <a href="Website2.html"><img src="https://www.britishrowing.org/wp-content/themes/britishrowing/assets/img/brand/br-logo-horizontal.png" height="38" alt="logo"></a>
+                </div>
+            </div>
+
+
+            <div class="grid-item social">
+                <a href="https://www.instagram.com/britishrowing/"><img class="right instagram" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" alt="instagram" width="37" height="36"></a>
+                <a href="https://www.youtube.com/user/britishrowing"><img class="right youtube" src="http://pluspng.com/img-png/youtube-png-youtube-play-button-png-free-download-396.png" alt="youtube" width="40" height="35"></a>
+                <a href="https://www.facebook.com/BritishRowing"><img class="right facebook" src="https://s18955.pcdn.co/wp-content/uploads/2017/11/Facebook-share-icon.png" alt="facebook" width="37" height="35"></a>
+                <a href="https://twitter.com/britishrowing"><img class="right twitter" src="http://stagewp.sharethis.com/wp-content/uploads/2019/03/twitterimg.png" alt="twitter" width="37" height="35"></a>
+                
+                <form class="right"><input class="searchbar" value="Search..."></form>
+
+                <button class="right sign" onclick="document.getElementById('id01').style.display='block'">SIGN UP</button>
+                <div id="id01" class="modal">
+  
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                
+                      <div class="container">
+                        <label for="uname"><b>Email Address</b></label>
+                        <input type="text" placeholder="Enter Email Address" name="email" required>
+                        
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                  
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                          
+                        <button class="signup" type="submit">Sign Up</button>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                      </div>
+                  
+                      <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                      </div>
+
+                    </form>
+
+                </div>
+
+                <div id="buy">
+                <img class="buy" src="data:image/png;base64,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" width="35" alt="basket">
+                <p>
+                    <span class="zero">0 items - £0.00</span>
+                </p>
+                </div>
+
+            </div>
+            
+            <div class="grid-item nav">        
+                <nav>
+                    <div class="toggle">
+                        <div class="menu">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="empty"></li>
+                        <li onclick="location.href='Website2.html';" style="cursor: pointer;">Home</li>
+                        <li class="about" onclick="location.href='About.html';" style="cursor: pointer;">About Us</li>
+                        <li class="rowing" onclick="location.href='Rowing.html';" style="cursor: pointer;">Go Rowing</li>
+                        <li onclick="location.href='Events.html';" style="cursor: pointer;">Events</li>
+                        <li onclick="location.href='News.html';" style="cursor: pointer;">News</li>
+                        <li onclick="location.href='Shop.html';" style="cursor: pointer;">Shop</li>
+                        <li class="empty"></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="grid-item bnav">
+                <nav>
+                    <ul>
+                        <li class="lempty"></li>
+                        <li onclick="location.href='#';" style="cursor: pointer; padding-right: 30px;">Clothing</li>
+                        <li onclick="location.href='#';" style="cursor: pointer; padding-right: 20px;">Gifts</li>
+                        <li onclick="location.href='#';" style="cursor: pointer; padding-right: 20px;">Kits</li>
+                        <li onclick="location.href='#';" style="cursor: pointer; padding-right: 40px;">Collections</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="grid-item content">
+
+                <div id="box1">
+                    <h1>Inspired by Collection</h1>
+                    <img class="img1" src="https://britishrowing.orbgroup.co.uk/media/magiccart/magicslider/cache/1920x650//s/h/shop_header_flipped_.png" alt="kit" width="1350">
+                </div>
+
+                <div id="box2">
+
+                    <div class="two">
+                        <img class="img2" src="https://britishrowing.orbgroup.co.uk/media/wysiwyg/ReplicaKitBlock_resize.png" alt="sub1" width="300">
+                            <h1>British Rowing launches Replica Kit Range</h1>
+                        <p class="img2">The official replica kit, produced by Mizuno, British Rowing’s Official Sportswear Partner, has been developed using 111 years of Mizuno’s design and performance expertise. It is the same kit worn by the GB Rowing Team during training and while representing Great Britain on the international stage, helping fans to feel like part of the team.
+                            Kenny Baillie, Director of Partnerships and Communications at British Rowing said: “We are very pleased to launch our first ever official replica kit range with Mizuno. This range is a great opportunity for the rowing community and fans to wear the badge of the GB Rowing Team with pride."
+                            <br>
+                            British Rowing and Mizuno have also unveiled the ‘Inspired By’ range, a brand new collection of official sports clothing. Inspired by the famous red, white and blue hoops of the GB Rowing Team’s World Championship kit, the new, contemporary range offers fans of the Team the opportunity to show their support through clothing designed specifically with them in mind.
+                            The full range includes track tops, leggings, gilets, hoodies, polo shirts, t-shirts and rowing all-in-ones, with all clothing featuring the unique geometric design. Each item is available in both men’s and women’s fits.
+                            <br>
+                        </p>
+
+                        <div class="slider">
+                            <div class="slides">
+                                <div id="slide-1">
+                                  <img src="https://britishrowing.orbgroup.co.uk/media/catalog/product/cache/17/image/800x800/9df78eab33525d08d6e5fb8d27136e95/r/e/replica_team_fleece_mens_fit_a.png" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">Replica Team Fleece</p>
+                                </div>
+                                <div id="slide-2">
+                                  <img src="https://britishrowing.orbgroup.co.uk/media/catalog/product/cache/17/image/800x800/9df78eab33525d08d6e5fb8d27136e95/r/e/replica_team_leggings_unisex_a_2.png" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">Replica Team Leggings</p>
+                                </div>
+                                <div id="slide-3">
+                                  <img src="https://britishrowing.orbgroup.co.uk/media/catalog/product/cache/17/image/800x800/9df78eab33525d08d6e5fb8d27136e95/r/e/replica_team_splash_jacket_womens_fit_a.png" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">Replica Team Splash Jacket</p>
+                                </div>
+                                <div id="slide-4">
+                                  <img src="https://britishrowing.orbgroup.co.uk/media/catalog/product/cache/17/image/800x800/9df78eab33525d08d6e5fb8d27136e95/r/e/replica_team_white_t-shirt_mens_fit_a.png" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">Replica Team White T-Shirt</p>
+                                </div>
+                                <div id="slide-5">
+                                  <img src="https://www.dwsports.com/dw/image/v2/BBTQ_PRD/on/demandware.static/-/Sites-DWS-Master-Catalog/default/dwa8dd817d/products/images/098713071_01.jpg?sw=265" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">Navy British Gilet</p>
+                                </div>
+                                <div id="slide-6">
+                                  <img src="https://www.dwsports.com/dw/image/v2/BBTQ_PRD/on/demandware.static/-/Sites-DWS-Master-Catalog/default/dw51f0ed01/products/images/098714901_01.jpg?sw=265" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">Retro Track Top</p>
+                                </div>
+                                <div id="slide-7">
+                                  <img src="https://www.dwsports.com/dw/image/v2/BBTQ_PRD/on/demandware.static/-/Sites-DWS-Master-Catalog/default/dw1016a110/products/images/098714171_01.jpg?sw=265" width="215">
+                                  <p style="margin-bottom: 0; margin-top: 5px; font-size: 14px; font-weight: 600;">All-in-One Outfit</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div id="box3">
+
+                    <div class="two">
+                        <img class="img2" src="https://britishrowing.orbgroup.co.uk/media/wysiwyg/waterrower_1.png" alt="sub1" width="300">
+                            <h1>British Rowing teams up with WaterRower</h1>
+                        <p class="img2">WaterRower becomes the Official Water Rowing Machine of British Rowing, with members able to enjoy up to 20% off on the innovative machines.
+                            WaterRower has become the Official Water Rowing Machine of British Rowing, as the two organisations work together to support the growth of indoor rowing in England.
+                            <br><br>
+                            Handcrafted from sustainably-sourced Appalachian White Oak and inscribed with the British Rowing logo, the customised WaterRower will be available to British Rowing members for an exclusive 20 per cent off RRP, with proceeds from the sales going back to British Rowing.
+                            <br>
+                            The machines are designed to be almost silent when in use, with the patented WaterFlywheel emulating the dynamics of a boat moving through water to give an authentic rowing feel. The WaterRower is compact, easily stored upright and will complement any environment; home, office or gym.
+                            WaterRower CEO, Peter King said: “We are proud that WaterRower has become the Official Water Rowing Machine of British Rowing.  Great Britain is currently the most successful rowing nation on the planet, and British Rowing are the driving force behind this success.”
+                        </p>
+
+                        <img class="rower" src="https://www.britishrowing.org/wp-content/uploads/2016/11/waterrower.jpg" alt="waterrower" width="500">
+                        
+                    </div>
+
+                </div>
+
+                <div id="box4">
+
+                    <div class="two">
+                        <img class="img2" src="https://britishrowing.orbgroup.co.uk/media/wysiwyg/Gifts_resize.png" alt="sub1" width="300">
+                            <h1>British Rowing Gifts</h1>
+                        <p class="img2">
+                            Rowers gifts are simple - we always want a rigger jigger and a hat and anything else is a bonus! This Shopping page also has a fantastic range of rowing art and rowing postcards. And there are gift vouchers for the rower you love when you can't decide what to buy.
+                            <br><br>
+                            A nice selection of British Rowing gifts are now available to purchase for family or for yourself!
+                            <br>
+                            These gifts could also be given to fellow friends as they would be Facing off against stern competition, with participants travelling from all around the country from the major rowing clubs and schools across Britain to participate throughout their championships.
+                            <br>
+                            To order one or all of these items please telephone Sarah Hope at British Rowing on 020 8237 6700.
+                            <br>
+                            Additionally, if you would like to purchase some new British Rowing rowing kit and/or leisure clothing you can do so online Rock The Boat.
+                            <br>
+                        </p>
+
+                        <div class="slider2">
+                            <div class="slides2">
+                                <div id="slide-1">
+                                  <img src="https://britishrowing.orbgroup.co.uk/media/catalog/product/cache/17/image/800x800/9df78eab33525d08d6e5fb8d27136e95/c/a/capblue1_copy.jpg" width="250">
+                                  <p style="margin-bottom: 0; margin-top: 15px; font-size: 14px; font-weight: 600;">Tatami Drylite Cap (Navy)</p>
+                                </div>
+                                <div id="slide-2">
+                                  <img src="https://britishrowing.orbgroup.co.uk/media/catalog/product/cache/17/image/800x800/9df78eab33525d08d6e5fb8d27136e95/t/o/torch2.jpg" width="250">
+                                  <p style="margin-bottom: 0; margin-top: 15px; font-size: 14px; font-weight: 600;">Torch Keyring (Red)</p>
+                                </div>
+                                <div id="slide-3">
+                                  <img src="https://i.etsystatic.com/16593248/r/il/296a4e/1723389683/il_794xN.1723389683_k1xf.jpg" width="250">
+                                  <p style="margin-bottom: 0; margin-top: 15px; font-size: 14px; font-weight: 600;">Yoda Rowing Coach Mug</p>
+                                </div>
+                                <div id="slide-4">
+                                    <img src="https://i.etsystatic.com/10372219/r/il/182179/1039350552/il_794xN.1039350552_6cg5.jpg" width="250">
+                                    <p style="margin-bottom: 0; margin-top: 15px; font-size: 14px; font-weight: 600;">Rowing Oar Blade Pendant</p>
+                                </div>
+                                <div id="slide-5">
+                                    <img src="https://i.etsystatic.com/10372219/r/il/21dbea/1528638573/il_794xN.1528638573_p8ks.jpg" width="250">
+                                    <p style="margin-bottom: 0; margin-top: 15px; font-size: 14px; font-weight: 600;">Handmade Oar Ring</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="grid-item footer" style="margin-top: 15px;">
+
+                <div id="leftside">
+                    <a href="#"><p>Terms and Conditions</p></a>
+                    <a href="#"><p>Privacy Policy</p></a>
+                    <a href="#"><p>Cookies</p></a>
+                </div>
+                <div id="rightside">
+                    <a href="Contact.html"><p>Contact Us</p></a>
+                    <a href="#"><p>Accessibility Statement</p></a>
+                    <a href="#"><p>© Copyright 2020 British Rowing</p></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.menu').click(function() {
+                    $('ul').toggleClass('active');
+                })
+            })
+        </script>
+    </body>
+</html>

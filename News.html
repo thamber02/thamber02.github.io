@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale, user-scalable=no" />
+        <link rel="stylesheet" type="text/css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <title>British Rowing News</title>
+
+        <style>
+            body {
+                margin: 0;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-row-gap: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+            .logo {
+                grid-column: 1;
+            }
+            .social {
+                grid-column: 2 / span 3;
+            }
+            .nav {
+                grid-column: 1 / span 3;
+            }
+            .bnav {
+                grid-column: 1 / span 3;
+            }
+            .content {
+                grid-column: 1 / span 3;
+            }
+            .footer {
+                grid-column: 1 / span 3;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Header Section ------------- */
+            /* --------------------------------------------- */
+            div.grid-item.logo {
+                padding-top: 5px;
+                padding-left: 45px;
+                margin-bottom: 8px;
+            }
+            div.grid-item.social {
+                padding-top: 5px;
+                padding-right: 45px;
+                margin-bottom: 8px;
+            }
+
+            .right {
+                float: right;
+                margin-right: 17px;
+            }
+
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            }
+
+            /* Set a style for all buttons */
+            button {
+            background-color: #00008b;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            }
+
+            button:hover {
+            opacity: 0.8;
+            }
+
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+            width: auto;
+            padding: 8px 8px;
+            background-color: #f44336;
+            font-size: 10px;
+            }
+
+            /* Center the image and position the close button */
+            .imgcontainer {
+            text-align: left;
+            margin: 24px 0 12px 0;
+            position: relative;
+            }
+
+            .container {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            }
+
+            span.psw {
+            float: right;
+            padding-top: 16px;
+            }
+            button.signup {
+                height: 30px;
+                width: 90px;
+                margin-left: 200px !important;
+                margin-right: 20px !important;
+            }
+
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 40%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button (x) */
+            .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: red;
+            cursor: pointer;
+            }
+
+
+
+            .searchbar {
+                width: 220px;
+                height: 25px;
+                font-size: 16px;
+                margin-right: 6px;
+                margin-top: 5px;
+            }
+            .sign {
+                width: 170px;
+                height: 35px;
+                font-size: 18px;
+                margin-top: 5px;
+            }
+
+            img.right.twitter {
+                margin-top: 5px;
+            }
+            img.right.facebook {
+                margin-top: 5px;
+            }
+            img.right.instagram {
+                margin-top: 5px;
+                margin-right: 0;
+            }
+            img.right.youtube {
+                margin-top: 5px;
+            }
+            #logo {
+                width: 220px;
+            }
+
+            /* ------------------------------------------ */
+            /* ---------------- Nav Section ------------- */
+            /* --------------------- -------------------- */
+            nav {
+                background: #00008b;
+                font-size: 20px;
+            }
+            ul {
+                width: 900px;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-around;
+                list-style: none;
+                text-align: left;
+            }
+            ul li {
+                list-style: none;
+                display: inline-block;
+                padding: 10px;
+                padding-right: 1px;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 200px;
+                height: 21px;
+                color: white;
+                text-decoration: none;
+            }
+
+            ul li:hover {
+                background: red;
+            }
+            ul li.rowing {
+                width: 250px;
+            }
+
+            li.empty {
+                width: 70px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            li.empty:hover {
+                background: none;
+            }
+
+            .toggle {
+                width: 100%;
+                padding: 10px 20px;
+                background: #001f44;
+                text-align: center;
+                box-sizing: border-box;
+                color: #ffffff;
+                font-size: 30px;
+                display: none;
+            }
+
+            /* ------------------------------------------------- */
+            /* ---------------- Bottom Nav Section ------------- */
+            /* ------------------------------------------------- */
+            .bnav nav {
+                font-size: 12px;
+                border-top: 1px solid #6183A6;
+                background: #003F87;
+            }
+            .bnav ul {
+                text-align: left;
+                width: 700px;
+            }
+            .bnav ul li {
+                height: 13px;
+                padding: 5px;
+                padding-top: 8px;
+                padding-bottom: 6px;
+                width: 100%;
+                border-right: 2px solid #6183A6;
+            }
+            .bnav ul li.lempty {
+                width: 300px;
+                border-right: none !important;
+            }
+            .bnav ul li.lempty:hover {
+                background: none;
+            }
+
+            /* ---------------------------------------------- */
+            /* ---------------- Content Section ------------- */
+            /* ---------------------------------------------- */
+            #box1 {
+                text-align: center;
+                position: relative;
+                color: white;
+                margin-top: 10px;
+            }
+            #box1 h1 {
+                position: absolute;
+                bottom: 75%;
+                left: 700px;
+                top: 50px;
+                right: 0;
+                width: 900px;
+                transform: translate(-50%, -50%);
+            }
+            #box1 p {
+                text-align: left;
+                margin-left: 45px;
+                margin-right: 45px;
+                line-height: 22px;
+                margin-top: 5px;
+                color: black;
+            }
+            #box2 {
+                display: inline-block;
+                margin-top: 40px;
+                margin-left: 45px;
+                width: 300px;
+            }
+            #box3 {
+                display: inline-block;
+                width: 300px;
+            }
+            #box4 {
+                display: inline-block;
+                margin-top: 40px;
+                width: 300px;
+            }
+            #box5 {
+                display: inline-block;
+                width: 300px;
+
+            }
+            #box2 p, #box3 p, #box4 p, #box5 p {
+                margin-top: 10px;
+            }
+            #box3, #box4, #box5 {
+                margin-left: 46px;
+            }
+            #box4 h3 , #box5 h3 {
+                height: 80px;
+            }
+
+
+            #box6 {
+                display: inline-block;
+                margin-top: 40px;
+                margin-left: 45px;
+                width: 300px;
+            }
+            #box7 {
+                display: inline-block;
+                width: 300px;
+            }
+            #box8 {
+                display: inline-block;
+                margin-top: 40px;
+                width: 300px;
+            }
+            #box9 {
+                display: inline-block;
+                width: 300px;
+
+            }
+            #box7, #box8, #box9 {
+                margin-left: 46px;
+            }
+
+            .sub-heading h1 {
+                text-align: center;
+                margin-bottom: 0;
+                margin-top: 30px;
+            }
+            #box2 h3, #box3 h3, #box4 h3, #box5 h3, #box6 h3, #box7 h3, #box8 h3, #box9 h3 {
+                margin-bottom: 11px;
+            }
+
+            /* --------------------------------------------- */
+            /* ---------------- Footer Section ------------- */
+            /* --------------------------------------------- */
+
+            .grid-item.footer {
+                background-color: #00008b;
+                margin-bottom: 0;
+                font-size: 12px;
+                color: white;
+            }
+
+            #leftside {
+                float: left;
+                margin-left: 55px;
+                text-align: left;
+            }
+        
+            #rightside {
+                float: right;
+                margin-right: 48px;
+                text-align: right;
+            }
+
+            .footer p {
+                font-size: 20px;
+            }
+            .grid-item.footer {
+                background-color: #00008b;
+                margin-bottom: 0;
+                font-size: 12px;
+                color: white;
+            }
+
+            #leftside {
+                float: left;
+                margin-left: 42px;
+                text-align: left;
+            }
+        
+            #rightside {
+                float: right;
+                margin-right: 42px;
+                text-align: right;
+            }
+            #rightside a, #leftside a {
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            .footer p {
+                font-size: 14px;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="grid-container">
+
+            <div class="grid-item logo">
+                <div id="logo">
+                    <a href="Website2.html"><img src="https://www.britishrowing.org/wp-content/themes/britishrowing/assets/img/brand/br-logo-horizontal.png" height="38" alt="logo"></a>
+                </div>
+            </div>
+
+
+            <div class="grid-item social">
+                <a href="https://www.instagram.com/britishrowing/"><img class="right instagram" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300" alt="instagram" width="37" height="36"></a>
+                <a href="https://www.youtube.com/user/britishrowing"><img class="right youtube" src="http://pluspng.com/img-png/youtube-png-youtube-play-button-png-free-download-396.png" alt="youtube" width="40" height="35"></a>
+                <a href="https://www.facebook.com/BritishRowing"><img class="right facebook" src="https://s18955.pcdn.co/wp-content/uploads/2017/11/Facebook-share-icon.png" alt="facebook" width="37" height="35"></a>
+                <a href="https://twitter.com/britishrowing"><img class="right twitter" src="http://stagewp.sharethis.com/wp-content/uploads/2019/03/twitterimg.png" alt="twitter" width="37" height="35"></a>
+                
+                <form class="right"><input class="searchbar" value="Search..."></form>
+
+                <button class="right sign" onclick="document.getElementById('id01').style.display='block'">SIGN UP</button>
+                <div id="id01" class="modal">
+  
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                
+                      <div class="container">
+                        <label for="uname"><b>Email Address</b></label>
+                        <input type="text" placeholder="Enter Email Address" name="email" required>
+                        
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                  
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                          
+                        <button class="signup" type="submit">Sign Up</button>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                      </div>
+                  
+                      <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                      </div>
+
+                    </form>
+
+                  </div>
+
+            </div>
+            
+            <div class="grid-item nav">        
+                <nav>
+                    <div class="toggle">
+                        <div class="menu">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <ul>
+                        <li class="empty"></li>
+                        <li onclick="location.href='Website2.html';" style="cursor: pointer;">Home</li>
+                        <li class="about" onclick="location.href='About.html';" style="cursor: pointer;">About Us</li>
+                        <li class="rowing" onclick="location.href='Rowing.html';" style="cursor: pointer;">Go Rowing</li>
+                        <li onclick="location.href='Events.html';" style="cursor: pointer;">Events</li>
+                        <li onclick="location.href='News.html';" style="cursor: pointer;">News</li>
+                        <li onclick="location.href='Shop.html';" style="cursor: pointer;">Shop</li>
+                        <li class="empty"></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="grid-item bnav">
+                <nav>
+                    <ul>
+                        <li class="lempty"></li>
+                        <li onclick="location.href='#';" style="cursor: pointer; padding-right: 10px;">Community</li>
+                        <li onclick="location.href='#';" style="cursor: pointer;">Team</li>
+                        <li onclick="location.href='#';" style="cursor: pointer; padding-right: 30px;">Indoor Rowing</li>
+                        <li onclick="location.href='#';" style="cursor: pointer;">Regatta</li>
+                        <li onclick="location.href='#';" style="cursor: pointer;">Partners</li>
+                        <li onclick="location.href='#';" style="cursor: pointer;">Stories</li>
+                        <li onclick="location.href='Contact.html';" style="cursor: pointer;">Contact Us</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="grid-item content">
+
+                <div id="box1">
+                    <h1>Zak Lee-Green announces his retirement from rowing</h1>
+                    <img class="img1" src="https://www.britishrowing.org/wp-content/uploads/2020/01/Zak-Lee-Green.-Credit-Nick-Middleton.jpg" alt="Team" width="1350">
+                    <p>
+                        After an outstanding decade of representing Great Britain, World Silver Medalist Zak Lee-Green, announces his retirement.
+                        "The whole experience was a lot of fun. It was always on wheels and just kept going. I'll look back on that as one of my favourites.
+                        <br>
+                        He says he knew the time was right for him to step away from the squad: "I had a bit of a cry in the car on the way home, but then knew I'd made the right decision when I felt good the next day."
+                        "I've had a great time, going to amazing places and competing alongside the best rowing athletes in the world".
+                    </p>
+                </div>
+
+                <div class="sub-heading">
+                    <h1>Highlights</h1>
+                </div>
+
+                <div id="box2">
+                    <img class="img2" src="https://www.britishrowing.org/wp-content/uploads/2019/12/1-2012.png" alt="img2" width="300">
+                    <h3>Highlight 1# of the decade: Team GB's first gold at London 2012 Olympics for Glover and Stanning</h3>
+                    <p>Topping our highlights of the decade are Helen Glover and Heather Stanning. Olympic gold medals in the women's pair at London 2012.</p>
+                </div>
+
+                <div id="box3">
+                    <img class="img3" src="https://www.britishrowing.org/wp-content/uploads/2019/12/2-2016.png" alt="img3" width="300">
+                    <h3>Highlight 2# of the decade: Andrew Triggs Hodge and Pete Reed become triple Olympic medalists</h3>
+                    <p>No 2# in our highlights of the decade: Andrew Triggs Hodge and Pete Reed won Olympic gold with the men's eight at the 2016 Rio Games.</p>
+                </div>
+
+                <div id="box4">
+                    <img class="img4" src="https://www.britishrowing.org/wp-content/uploads/2019/12/3-2016-Para.png" alt="img4" width="300">
+                    <h3>Highlight 3# of the decade: <br> Great Britain finishes top at the Rio 2016 Paralympic Games</h3>
+                    <p>Britain Paralympic rowers brought home medals in every boat class at Rio, including three sensational golds, topping the table at the 2016 Games.</p>
+                </div>
+
+                <div id="box5">
+                    <img class="img5" src="https://www.britishrowing.org/wp-content/uploads/2019/12/4-WorldCup2013.png" alt="img5" width="300">
+                    <h3>Highlight 4# of the decade: <br> Record crowds at Dorney for 2013 Samsung World Cup</h3>
+                    <p>A full house roared the GB Rowing Team on to more golden performances in 2013 on the Olympic Regatta course at Eton Dorney.</p>
+                </div>
+
+                <!---------------------------------->
+                <!-------- Second Half ------------->
+                <!---------------------------------->
+
+                <div id="box6">
+                    <img class="img6" src="https://www.britishrowing.org/wp-content/uploads/2019/12/5-WomensBoatRace.png" alt="img2" width="300">
+                    <h3>Highlight 5# of the decade: Women’s Boat Race joins the men on the Tideway</h3>
+                    <p>Saturday 11 April 2015 was the day that the Oxford and Cambridge women’s crews made history when they raced on the Tideway</p>
+                </div>
+
+                <div id="box7">
+                    <img class="img7" src="https://www.britishrowing.org/wp-content/uploads/2019/12/6-CommunityRowing.png" alt="img3" width="300">
+                    <h3>Highlight 6# of the decade: grassroots rowing goes from strength to strength</h3>
+                    <p>With 76 new clubs, near-record entries across all competition formats from juniors to masters and BUCS to BRIC, rowing is growing</p>
+                </div>
+
+                <div id="box8">
+                    <img class="img8" src="https://www.britishrowing.org/wp-content/uploads/2019/12/7-MoeBRIC.png" alt="img4" width="300">
+                    <h3>Highlight 7# of the decade:<br> Moe Sbihi smashes 2km record at BRIC 2015</h3>
+                    <p>Number seven in our highlights of the decade is Moe Sbihi smashing Sir Matthew Pinsent’s 2km record – unbroken for 11 years until BRIC 2015.</p>
+                </div>
+
+                <div id="box9">
+                    <img class="img9" src="https://www.britishrowing.org/wp-content/uploads/2019/12/8-U23sSarasota.png" alt="img5" width="300">
+                    <h3>Highlight 8# of the decade:<br> U23 rowers’ gold rush at Sarasota</h3>
+                    <p>Britain’s U23 rowers gave a dazzling display at the U23 World Rowing Championships topping the medal table with six golds and two silvers</p>
+                </div>
+
+            </div>
+
+            <div class="grid-item footer" style="margin-top: 15px;">
+
+                <div id="leftside">
+                    <a href="#"><p>Terms and Conditions</p></a>
+                    <a href="#"><p>Privacy Policy</p></a>
+                    <a href="#"><p>Cookies</p></a>
+                </div>
+                <div id="rightside">
+                    <a href="Contact.html"><p>Contact Us</p></a>
+                    <a href="#"><p>Accessibility Statement</p></a>
+                    <a href="#"><p>© Copyright 2020 British Rowing</p></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.menu').click(function() {
+                    $('ul').toggleClass('active');
+                })
+            })
+        </script>
+    </body>
+</html>
